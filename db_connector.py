@@ -10,11 +10,11 @@ creation_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 env_path = Path('/Users/omerk/PycharmProjects/Python/DevOpsCourse/Projects/Project1') / '.creds'
 load_dotenv(dotenv_path=env_path)
-db_table = os.environ['DB_NAME']
-host = os.environ['HOST']
-port = os.environ['PORT']
-passwd = os.environ['DB_PASS']
-user = os.environ['DB_USER']
+# db_table = os.environ['DB_NAME']
+# host = os.environ['HOST']
+# port = os.environ['PORT']
+# passwd = os.environ['DB_PASS']
+# user = os.environ['DB_USER']
 
 conn = pymysql.connect(host='remotemysql.com',
                        port=3306,
