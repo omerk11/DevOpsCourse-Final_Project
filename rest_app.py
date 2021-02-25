@@ -40,4 +40,7 @@ def stop_server():
     os.kill(os.getpid(), signal.SIGINT)
     return 'Server stopped', 200
 
+@app.route('/hello')
+def hello():
+    return {'status': 'ok', 'user added': 'keidar'}, 201  # status code
 app.run(host='0.0.0.0', debug=True, port=5000)
