@@ -42,5 +42,5 @@ def stop_server():
 
 @app.route('/hello')
 def hello():
-    return {'status': 'ok', 'user added': 'keidar'}, 201  # status code
+    return {'status': 'ok', 'user added': 'omer'}, 201  # status code
 app.run(host='0.0.0.0', debug=True, port=5000)
