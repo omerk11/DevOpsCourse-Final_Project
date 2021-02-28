@@ -89,7 +89,7 @@ pipeline {
          stage('[10] Run clean docker environment environment ') {
             steps {
                 script {
-                    sh 'docker rmi project3'
+                    sh 'docker rmi project2'
                     sh 'docker-compose down'
                 }
             }
