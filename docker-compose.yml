@@ -1,0 +1,6 @@
+version: '3'
+services:
+  web:
+    image: "omerk11/my-repo:${BUILD_NUMBER}"
+    ports:
+     - "5000:5000"
