@@ -14,7 +14,7 @@ pipeline {
                 script {
                     properties([pipelineTriggers([pollSCM('*/30 * * * *')])])
                 }
-                git 'https://github.com/omerk11/Project2.git'
+                git 'https://github.com/omerk11/Final_Project.git'
             }
         }
         stage('[2] Run rest app server ') {
@@ -93,6 +93,32 @@ pipeline {
                     sh 'docker-compose down'
                 }
             }
+                   stage('Deploy Helm') {
+            steps {
+                script {
+                    sh 'helm upgrade --install testing keidarb-0.0.1.tgz --set image.tag=${BUILD_NUMBER}'
+                }
+            }
+        }
+        stage('[11] Write service to url') {
+            steps {
+                script {
+                    sh 'minikube service testing-keidarb --url > k8s_url.txt'
+                }
+                sleep 30
+            }
+        }
+        stage('[12] Run backend testing') {
+            steps {
+                script {
+                    sh 'python3.8 k8s_backend_testing.py'
+                }
+            }
+        }
+        stage('[13] Delete Helm chart') {
+            steps {
+                script {
+                    sh 'helm delete testing'
         }
     }
 }
