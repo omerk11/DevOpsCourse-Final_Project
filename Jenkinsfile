@@ -93,6 +93,7 @@ pipeline {
                     sh 'docker-compose down'
                 }
             }
+         }
                    stage('Deploy Helm') {
             steps {
                 script {
@@ -122,5 +123,5 @@ pipeline {
         }
     }
 }
-         }
     }
+}
