@@ -8,7 +8,7 @@ creation_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 """ Connection """
 
-env_path = Path('/Users/omerk/PycharmProjects/Python/DevOpsCourse/Projects/Project1') / '.creds'
+env_path = Path('/Users/omerk/PycharmProjects/Python/DevOpsCourse/Projects/Project1') / 'creds'
 load_dotenv(dotenv_path=env_path)
 # db_table = os.environ['DB_NAME']
 # host = os.environ['HOST']
