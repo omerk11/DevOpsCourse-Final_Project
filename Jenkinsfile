@@ -96,14 +96,14 @@ pipeline {
                    stage('Deploy Helm') {
             steps {
                 script {
-                    sh 'helm upgrade --install testing keidarb-0.0.1.tgz --set image.tag=${BUILD_NUMBER}'
+                    sh 'helm upgrade --install testing omerk-0.0.1.tgz --set image.tag=${BUILD_NUMBER}'
                 }
             }
         }
         stage('[11] Write service to url') {
             steps {
                 script {
-                    sh 'minikube service testing-keidarb --url > k8s_url.txt'
+                    sh 'minikube service testing-omerk --url > k8s_url.txt'
                 }
                 sleep 30
             }
