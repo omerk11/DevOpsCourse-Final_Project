@@ -94,14 +94,14 @@ pipeline {
                 }
             }
          }
-                   stage('Deploy Helm') {
+                   stage('[11] Deploy Helm') {
             steps {
                 script {
                     sh 'helm upgrade --install testing omerk-0.0.1.tgz --set image.tag=${BUILD_NUMBER}'
                 }
             }
         }
-        stage('[11] Write service to url') {
+        stage('[12] Write service to url') {
             steps {
                 script {
                     sh 'minikube service testing-omerk --url > k8s_url.txt'
@@ -109,14 +109,14 @@ pipeline {
                 sleep 30
             }
         }
-        stage('[12] Run backend testing') {
+        stage('[13] Run backend testing') {
             steps {
                 script {
                     sh 'python3.8 k8s_backend_testing.py'
                 }
             }
         }
-        stage('[13] Delete Helm chart') {
+        stage('[14] Delete Helm chart') {
             steps {
                 script {
                     sh 'helm delete testing'
